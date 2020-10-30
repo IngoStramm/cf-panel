@@ -4,7 +4,7 @@
  * Plugin Name: Converte Facil Painél
  * Plugin URI: https://agencialaf.com
  * Description: Painél dos sites do Converte Facil.
- * Version: 0.0.2
+ * Version: 0.0.3
  * Author: Ingo Stramm
  * Text Domain: cfp
  * License: GPLv2
@@ -27,6 +27,7 @@ require_once 'classes/classes.php';
 require_once 'cfp-widget.php';
 require_once 'cfp-notice.php';
 require_once 'cfp-cmb.php';
+require_once 'cfp-feed.php';
 
 require 'plugin-update-checker-4.10/plugin-update-checker.php';
 $updateChecker = Puc_v4_Factory::buildUpdateChecker(

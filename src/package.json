@@ -1,7 +1,7 @@
 {
     "name": "cf-panel",
     "description": "Painél dos sites do Converte Facil.",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "title": "Converte Facil Painél",
     "homepage": "https://agencialaf.com",
     "main": "Gruntfile.js",

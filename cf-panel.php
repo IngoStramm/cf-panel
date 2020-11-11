@@ -4,7 +4,7 @@
  * Plugin Name: Converte Facil Painél
  * Plugin URI: https://agencialaf.com
  * Description: Painél dos sites do Converte Facil.
- * Version: 0.0.4
+ * Version: 0.0.5
  * Author: Ingo Stramm
  * Text Domain: cfp
  * License: GPLv2

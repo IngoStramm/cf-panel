@@ -80,45 +80,14 @@ do_action('rss_tag_pre', 'rss2');
             $post = get_post(get_the_ID());
         ?>
             <item>
+                <menu_order><?php echo $post->menu_order; ?></menu_order>
                 <title><?php the_title_rss(); ?></title>
-                <position><?php echo $post->menu_order; ?></position>
+                <?php $content = get_the_content_feed('rss2'); ?>
+                <content:encoded>
+                    <![CDATA[<?php echo $content; ?>]]>
+                </content:encoded>
                 <thumb><?php echo get_the_post_thumbnail_url(); ?></thumb>
-                <link><?php the_permalink_rss(); ?></link>
-                <?php if (get_comments_number() || comments_open()) : ?>
-                    <comments><?php comments_link_feed(); ?></comments>
-                <?php endif; ?>
-
-                <dc:creator>
-                    <![CDATA[<?php the_author(); ?>]]>
-                </dc:creator>
-                <pubDate><?php echo mysql2date('D, d M Y H:i:s +0000', get_post_time('Y-m-d H:i:s', true), false); ?></pubDate>
-                <?php the_category_rss('rss2'); ?>
-                <guid isPermaLink="false"><?php the_guid(); ?></guid>
-
-                <?php if (get_option('rss_use_excerpt')) : ?>
-                    <description>
-                        <![CDATA[<?php the_excerpt_rss(); ?>]]>
-                    </description>
-                <?php else : ?>
-                    <description>
-                        <![CDATA[<?php the_excerpt_rss(); ?>]]>
-                    </description>
-                    <?php $content = get_the_content_feed('rss2'); ?>
-                    <?php if (strlen($content) > 0) : ?>
-                        <content:encoded>
-                            <![CDATA[<?php echo $content; ?>]]>
-                        </content:encoded>
-                    <?php else : ?>
-                        <content:encoded>
-                            <![CDATA[<?php the_excerpt_rss(); ?>]]>
-                        </content:encoded>
-                    <?php endif; ?>
-                <?php endif; ?>
-
-                <?php if (get_comments_number() || comments_open()) : ?>
-                    <wfw:commentRss><?php echo esc_url(get_post_comments_feed_link(null, 'rss2')); ?></wfw:commentRss>
-                    <slash:comments><?php echo get_comments_number(); ?></slash:comments>
-                <?php endif; ?>
+                <position><?php echo get_post_meta($post->ID, 'widget_options_select', true); ?></position>
 
                 <?php rss_enclosure(); ?>
 

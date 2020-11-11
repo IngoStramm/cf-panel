@@ -83,9 +83,9 @@ do_action('rss_tag_pre', 'rss2');
                 <menu_order><?php echo $post->menu_order; ?></menu_order>
                 <title><?php the_title_rss(); ?></title>
                 <?php $content = get_the_content_feed('rss2'); ?>
-                <content:encoded>
+                <content>
                     <![CDATA[<?php echo $content; ?>]]>
-                </content:encoded>
+                </content>
                 <thumb><?php echo get_the_post_thumbnail_url(); ?></thumb>
                 <position><?php echo get_post_meta($post->ID, 'widget_options_select', true); ?></position>
 

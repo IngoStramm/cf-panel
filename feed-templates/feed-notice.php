@@ -88,9 +88,9 @@ do_action('rss_tag_pre', 'rss2');
                 <notice_type><?php echo $notice_type; ?></notice_type>
 
                 <?php $content = get_the_content_feed('rss2'); ?>
-                <content:encoded>
+                <content>
                     <![CDATA[<?php echo $content; ?>]]>
-                </content:encoded>
+                </content>
 
                 <screens>
                     <?php foreach ($screens as $screen) { ?>
